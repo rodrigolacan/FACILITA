@@ -40,10 +40,18 @@ class Desencurtar extends Controller
             return view('Errors.404');
         }
 
-        // $estatisticas = new Estatisticas;
-        // $estatisticas = $estatisticas->where('id_encurtados',$long_link->id)->select('acessos');
-        // $estatisticas->increment('acessos');
-        
+        // Usando o relacionamento para buscar ou criar a estatística
+        $estatisticas = Estatisticas::where('id_encurtados', $long_link->id)->first();
+
+        if ($estatisticas) {
+            $estatisticas->increment('acessos'); // Incrementa o número de acessos
+        } else {
+            // Se não existe, cria uma nova estatística para o link
+            Estatisticas::create([
+                'id_encurtados' => $long_link->id,
+                'acessos' => 1
+            ]);
+        }
 
         return redirect($long_link->long_link);
     }

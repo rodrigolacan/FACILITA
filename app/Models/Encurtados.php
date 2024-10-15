@@ -12,4 +12,10 @@ class Encurtados extends Model
     protected $primaryKey = 'id';
     public $timestamps= false;
 
+    // Relacionamento com a tabela 'estatisticas'
+    public function estatisticas()
+    {
+        return $this->hasMany(Estatisticas::class, 'id_encurtados', 'id'); 
+    }
+
 }

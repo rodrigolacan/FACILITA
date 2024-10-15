@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ENCURTADOS', function (Blueprint $table) {
+        Schema::create('encurtados', function (Blueprint $table) {
             $table->id(); // Cria um campo ID auto-incrementável
             $table->text('long_link'); // Coluna para o link longo
             $table->string('short_link', 255); // Coluna para o link curto
