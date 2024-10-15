@@ -40,9 +40,9 @@ class Desencurtar extends Controller
             return view('Errors.404');
         }
 
-        $estatisticas = new Estatisticas;
-        $estatisticas = $estatisticas->where('id_encurtados',$long_link->id)->select('acessos');
-        $estatisticas->increment('acessos');
+        // $estatisticas = new Estatisticas;
+        // $estatisticas = $estatisticas->where('id_encurtados',$long_link->id)->select('acessos');
+        // $estatisticas->increment('acessos');
         
 
         return redirect($long_link->long_link);

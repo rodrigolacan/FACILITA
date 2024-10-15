@@ -9,6 +9,7 @@ class Encurtados extends Model
 {
     use HasFactory;
     protected $table = 'ENCURTADOS';
-    protected $primaryKey = 'ID';
-    public $timestamps= true;
+    protected $primaryKey = 'id';
+    public $timestamps= false;
+
 }

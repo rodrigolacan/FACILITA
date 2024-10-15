@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('ENCURTADOS', function (Blueprint $table) {
             $table->id(); // Cria um campo ID auto-incrementável
-            $table->string('short_link', 255);
-            $table->text('long_link');
+            $table->text('long_link'); // Coluna para o link longo
+            $table->string('short_link', 255); // Coluna para o link curto
             $table->boolean('permanencia')->default(false); // Campo para valores booleanos
+            $table->string('usuario')->nullable(); // Adiciona a coluna 'usuario'
+            $table->string('hash_link')->nullable(); // Adiciona a coluna 'hash_link'
         });
     }
 
