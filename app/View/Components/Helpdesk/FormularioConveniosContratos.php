@@ -21,6 +21,6 @@ class FormularioConveniosContratos extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.helpdesk.formulario-convenios-contratos');
+        return view('components.Helpdesk.formulario-convenios-contratos');
     }
 }

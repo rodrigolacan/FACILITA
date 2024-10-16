@@ -62,16 +62,16 @@ return [
         'corporeRMBI' => [
             'driver' => 'sqlsrv',
             'url' => env('DB_URL'),
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_SECONDARY_DATABASE', 'laravel'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => env('DB_CHARSET', 'utf8'),
-            'prefix' => '',
-            'prefix_indexes' => true,
-            // 'encrypt' => env('DB_ENCRYPT', 'yes'),
-            // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+            'host' => env('DB_SECONDARY_HOST'), // O host do servidor secundário
+            'port' => env('DB_PORT', '1433'), // Porta padrão para SQL Server
+            'database' => env('DB_SECONDARY_DATABASE', 'laravel'), // Nome do banco de dados
+            'username' => env('DB_USERNAME', 'api.rr'), // Usuário para autenticação
+            'password' => env('DB_PASSWORD', 'Svt3090s3@@'), // Senha do usuário
+            'charset' => env('DB_CHARSET', 'utf8'), // Charset da conexão
+            'prefix' => '', // Prefixo das tabelas (se houver)
+            'prefix_indexes' => true, // Usar prefixo para índices
+            'encrypt' => true, // Desabilitar criptografia
+            'trust_server_certificate' => true, // Confiar no certificado
         ],
 
         'mariadb' => [
