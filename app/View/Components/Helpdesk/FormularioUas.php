@@ -21,6 +21,6 @@ class FormularioUas extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.helpdesk.formulario-uas');
+        return view('components.Helpdesk.formulario-uas');
     }
 }

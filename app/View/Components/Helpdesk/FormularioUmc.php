@@ -21,6 +21,6 @@ class FormularioUmc extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.helpdesk.formulario-umc');
+        return view('components.Helpdesk.formulario-umc');
     }
 }

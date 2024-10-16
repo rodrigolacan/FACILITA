@@ -21,6 +21,6 @@ class HelpdeskNavigation extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.helpdesk-navigation');
+        return view('components.Helpdesk-navigation');
     }
 }

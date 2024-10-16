@@ -21,6 +21,6 @@ class FormularioGabineteDirex extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.helpdesk.formulario-gabinete-direx');
+        return view('components.Helpdesk.formulario-gabinete-direx');
     }
 }

@@ -21,6 +21,6 @@ class FormularioOuvidoria extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.helpdesk.formulario-ouvidoria');
+        return view('components.Helpdesk.formulario-ouvidoria');
     }
 }
