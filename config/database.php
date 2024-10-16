@@ -70,8 +70,8 @@ return [
             'charset' => env('DB_CHARSET', 'utf8'), // Charset da conexão
             'prefix' => '', // Prefixo das tabelas (se houver)
             'prefix_indexes' => true, // Usar prefixo para índices
-            //'encrypt' => , // Desabilitar criptografia
-            //'trust_server_certificate' => false, // Confiar no certificado
+            'encrypt' => true, // Desabilitar criptografia
+            'trust_server_certificate' => true, // Confiar no certificado
         ],
 
         'mariadb' => [
