@@ -6,8 +6,16 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'fugaz': ['"Fugaz One"', 'cursive'], // Adiciona a fonte Fugaz One
+        'roboto': ['Roboto', 'sans-serif'],  // Adiciona a fonte Roboto
+      },
+      colors: {
+        primary: '#005EB8', // Adiciona uma cor primária se precisar reutilizar
+        secondary: '#000000', // Adiciona a cor preta como secundária
+      },
+    },
   },
   plugins: [],
 }
-
