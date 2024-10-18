@@ -19,14 +19,14 @@ RUN chown -R www-data:www-data /var/www/html \
     && find /var/www/html -type d -exec chmod 755 {} \; \
     && find /var/www/html -type f -exec chmod 644 {} \;
 
-# Habilitar o módulo rewrite do Apache
-RUN a2enmod rewrite
+# Habilitar os módulos rewrite e ssl do Apache
+RUN a2enmod rewrite ssl
 
 # Definir o ServerName para suprimir o aviso
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-# Expor a porta padrão do Apache
-EXPOSE 80
+# Expor as portas padrão do Apache
+EXPOSE 80 443
 
 # Comando final para rodar o Apache
 CMD ["apache2-foreground"]
