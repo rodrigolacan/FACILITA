@@ -1,5 +1,7 @@
 #!/bin/bash
 
+USE_SSL=false
+
 # Atualizar o sistema e instalar dependências
 apt-get update && apt-get install -y \
     curl \
@@ -46,6 +48,7 @@ apt-get install -y --no-install-recommends openssl
 rm -rf /var/lib/apt/lists/*
 cp /var/www/html/docker/openssl.cnf /etc/ssl/openssl.cnf
 
+
 # Configurar o VirtualHost para Laravel
 echo "<VirtualHost *:80>
     DocumentRoot /var/www/html/public
@@ -58,21 +61,29 @@ echo "<VirtualHost *:80>
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
-# Configurar o VirtualHost para HTTPS
-# echo "<VirtualHost *:443>
-#     DocumentRoot /var/www/html/public
-#     <Directory /var/www/html/public>
-#         Options Indexes FollowSymLinks
-#         AllowOverride All
-#         Require all granted
-#     </Directory>
-#     ErrorLog \${APACHE_LOG_DIR}/error.log
-#     CustomLog \${APACHE_LOG_DIR}/access.log combined
+# Verificar 
+if [ "$USE_SSL" = true ]; then
+    # Configurar o VirtualHost para HTTPS se os certificados existirem
+    echo "<VirtualHost *:443>
+        DocumentRoot /var/www/html/public
+        <Directory /var/www/html/public>
+            Options Indexes FollowSymLinks
+            AllowOverride All
+            Require all granted
+        </Directory>
+        ErrorLog \${APACHE_LOG_DIR}/error.log
+        CustomLog \${APACHE_LOG_DIR}/access.log combined
 
-#     SSLEngine on
-#     SSLCertificateFile /etc/ssl/certs/tls.crt
-#     SSLCertificateKeyFile /etc/ssl/certs/tls.key
-# </VirtualHost>" > /etc/apache2/sites-available/default-ssl.conf
+        SSLEngine on
+        SSLCertificateFile /etc/ssl/certs/tls.crt
+        SSLCertificateKeyFile /etc/ssl/certs/tls.key
+    </VirtualHost>" > /etc/apache2/sites-available/default-ssl.conf
 
-# Habilitar o site SSL
-a2ensite default-ssl
+    # Habilitar o site SSL
+    a2ensite default-ssl
+else
+    echo "Certificados SSL não encontrados. Configurando apenas HTTP."
+fi
+
+# Reiniciar o Apache para aplicar as alterações
+service apache2 restart
