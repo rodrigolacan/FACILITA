@@ -81,6 +81,10 @@ if [ "$USE_SSL" = true ]; then
 
     # Habilitar o site SSL
     a2ensite default-ssl
+
+    # Habilitar os módulos rewrite e ssl do Apache
+    a2enmod rewrite ssl
+    
 else
     echo "Certificados SSL não encontrados. Configurando apenas HTTP."
 fi
