@@ -12,6 +12,8 @@ echo "<VirtualHost *:80>
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
+a2enmod rewrite
+
 # Configurar o VirtualHost para HTTPS
 # echo "<VirtualHost *:443>
 #     DocumentRoot /var/www/html/public
