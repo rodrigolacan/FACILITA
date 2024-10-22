@@ -25,7 +25,7 @@ RUN chown -R www-data:www-data /var/www/html \
     && find /var/www/html -type f -exec chmod 644 {} \;
 
 # Definir o ServerName para suprimir o aviso
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN echo "ServerName 10.23.4.210" >> /etc/apache2/apache2.conf
 
 # Expor as portas padrão do Apache
 EXPOSE 80 443
