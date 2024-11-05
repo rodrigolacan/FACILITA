@@ -6,7 +6,7 @@
 @endsection
 
 @section('encurtador-body')
-<div class="container p-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+<div class="container pt-20 p-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
     <!--Left Col-->
     <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
         <p class="uppercase tracking-loose w-full">Encurtar Links ficou mais Fácil agora</p>

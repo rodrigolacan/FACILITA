@@ -5,7 +5,7 @@
 @endsection
 
 @section('criarHelp-body')
-<div class="container pt-8 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+<div class="container pt-20 mx-auto flex mt-100 flex-wrap flex-col md:flex-row items-center">
     <!--Left Col-->
     <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
       <p class="uppercase tracking-loose w-full">Envie seus helps pelo Facilita</p>
@@ -13,7 +13,7 @@
         Help Desk Já integrado com bitrix24
       </h1>
     </div>
-  </div>
+</div>
 <div class="relative -mt-12 lg:-mt-24">
   <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
