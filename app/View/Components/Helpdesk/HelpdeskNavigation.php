@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Helpdesk;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -21,6 +21,6 @@ class HelpdeskNavigation extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.helpdesk-navigation');
+        return view('components.Helpdesk-navigation');
     }
 }

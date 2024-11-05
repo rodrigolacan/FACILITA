@@ -9,6 +9,13 @@ class Encurtados extends Model
 {
     use HasFactory;
     protected $table = 'ENCURTADOS';
-    protected $primaryKey = 'ID';
-    public $timestamps= true;
+    protected $primaryKey = 'id';
+    public $timestamps= false;
+
+    // Relacionamento com a tabela 'estatisticas'
+    public function estatisticas()
+    {
+        return $this->hasMany(Estatisticas::class, 'id_encurtados', 'id'); 
+    }
+
 }
