@@ -1,13 +1,21 @@
 #!/bin/bash
 
+# Verificar se o argumento ServerName foi fornecido
+if [ -z "$1" ]; then
+    echo "Erro: O parâmetro ServerName não foi fornecido."
+    echo "Uso: $0 <ServerName>"
+    exit 1
+fi
+
 # Configurar o VirtualHost para redirecionar HTTP para HTTPS
 echo "<VirtualHost *:80>
-    ServerName 10.23.4.210
-    Redirect permanent / https://10.23.4.210/
+    ServerName $SERVER_NAME
+    Redirect permanent / https://$SERVER_NAME/
 </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
 # Configurar o VirtualHost para HTTPS
 echo "<VirtualHost *:443>
+    ServerName $SERVER_NAME
     DocumentRoot /var/www/html/public
     <Directory /var/www/html/public>
         Options Indexes FollowSymLinks

@@ -2,6 +2,7 @@
 FROM php:8.3-apache
 
 ENV SCRIPT_NAME=script.sh
+ENV SERVER_NAME=
 
 WORKDIR /var/www/html
 
@@ -25,10 +26,10 @@ RUN chown -R www-data:www-data /var/www/html \
     && find /var/www/html -type f -exec chmod 644 {} \;
 
 # Definir o ServerName para suprimir o aviso
-RUN echo "ServerName 10.23.4.210" >> /etc/apache2/apache2.conf
+RUN echo "ServerName $SERVER_NAME:80" >> /etc/apache2/apache2.conf
 
 # Expor as portas padrão do Apache
 EXPOSE 80 443
 
 # Comando final para rodar o Apache
-ENTRYPOINT ["/bin/bash", "-c", "/usr/local/bin/${SCRIPT_NAME} && apache2-foreground"]
+ENTRYPOINT ["/bin/bash", "-c", "if [ \"$SCRIPT_NAME\" = \"script-ssl.sh\" ]; then /usr/local/bin/${SCRIPT_NAME} ${SERVER_NAME}; else /usr/local/bin/${SCRIPT_NAME}; fi && apache2-foreground"]
