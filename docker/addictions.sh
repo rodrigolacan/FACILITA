@@ -31,6 +31,7 @@ rm -rf /var/lib/apt/lists/*
 # Instalar Node.js
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 apt-get install -y nodejs
+npm install
 npm run build
 # Baixar e instalar o Composer
 curl -sS https://getcomposer.org/installer -o composer-setup.php
