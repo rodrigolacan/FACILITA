@@ -25,14 +25,8 @@ Route::post('/sorteador-post',[Sorteador::class,'sortearPost'])->name('sorteador
 Route::match(['get','post'],'/encurtador', [Main::class,'principal'])->name('principal')->middleware(VerifyADUser::class);
 Route::post('/encurtar',[Main::class,'encurtar'])->name('encurtar');
 
-Route::get('/criarHelp',[CriarHelp::class,'criarHelp'])->name('criarHelp')->middleware(VerifyADUser::class);
-Route::post('/criarHelpPost',[CriarHelp::class,'criarHelpPost'])->name('criarHelpPost');
-
 Route::get('/index/meusLinks',[MeusLinks::class,'index'])->name('meusLinks')->middleware(VerifyADUser::class);
 Route::get('/index/buscarMeusLinks',[MeusLinks::class,'buscarLink'])->name('buscarMeusLinks')->middleware(VerifyADUser::class);
-
-Route::get('/preencherUtic/{cpf}',[CriarHelp::class,'preencherUtic'])->name('preencherUtic');
-Route::get('/capturarAcao/{projeto}',[CriarHelp::class,'capturarAcao'])->name('preencherUtic');
 
 Route::match(['get','post'],'/index', function (){
     return view('Logado.index');
