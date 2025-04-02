@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Encurtados extends Model
 {
     use HasFactory;
-    protected $table = 'ENCURTADOS';
+    protected $table = 'encurtados';
     protected $primaryKey = 'id';
     public $timestamps= false;
 

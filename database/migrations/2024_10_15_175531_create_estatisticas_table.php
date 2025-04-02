@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('estatisticas', function (Blueprint $table) {
             $table->id('ID'); // Chave primária
             $table->foreignId('id_encurtados') // Chave estrangeira
-                  ->constrained('ENCURTADOS', 'id') // Relaciona com a tabela 'ENCURTADOS'
+                  ->constrained('encurtados', 'id') // Relaciona com a tabela 'ENCURTADOS'
                   ->onDelete('cascade'); // Se o encurtador for deletado, as estatísticas também são deletadas
             $table->unsignedInteger('acessos')->default(0); // Campo de acessos, iniciando em 0
         });

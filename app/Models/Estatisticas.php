@@ -8,13 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Estatisticas extends Model
 {
     use HasFactory;
-    protected $table = 'ESTATISTICAS';
+    protected $table = 'estatisticas';
     protected $primaryKey = 'ID';
     public $timestamps= false;
-    // Campos que podem ser preenchidos em massa (mass assignment)
     protected $fillable = [
-        'id_encurtados', // Chave estrangeira para a tabela relacionada
-        'acessos',       // O campo que será incrementado
+        'id_encurtados',
+        'acessos',
     ];
 
     // Relacionamento com o modelo Encurtados

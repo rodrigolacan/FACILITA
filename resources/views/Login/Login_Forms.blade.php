@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>{{ env('APP_ENV') === 'production' ? 'Produção' : 'Homologação' }} - Facilita Login Sebrae</title>
+    <title>{{ env('APP_ENV') === 'production' ? 'Produção' : 'Homologação' }} - Cortex Login Sebrae</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/Template/main.css')
@@ -31,12 +31,12 @@
             <!-- Título Facilita -->
             <h1
                 class="{{ env('APP_ENV') === 'production' ? 'text-white' : (env('APP_ENV') === 'homolog' ? 'text-[#FFA726]' : 'text-white') }} font-fugaz text-[40px] sm:text-[60px] md:text-[80px]">
-                Facilita
+                Cortex
             </h1>
             <!-- Parágrafo de introdução -->
             <p
                 class="text-white font-['Poppins'] font-semibold text-[24px] sm:text-[30px] md:text-[50px] leading-tight mt-4">
-                Bem-vindo ao Facilita! Sua intranet inteligente para otimizar tarefas e conectar ideias.
+                Bem-vindo ao Cortex!
             </p>
             <!-- Subtexto -->
             <p class="text-white font-poppins text-[16px] sm:text-[18px] md:text-[24px] opacity-40 mt-4">

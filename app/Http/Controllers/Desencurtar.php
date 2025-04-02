@@ -34,7 +34,7 @@ class Desencurtar extends Controller
             return view('Errors.404');
         }
         
-        $long_link = Encurtados::whereRaw("hash_link COLLATE Latin1_General_CS_AS = ?", [$short_link])->select('long_link','id')->first();
+        $long_link = Encurtados::where('hash_link', $short_link)->select('long_link','id')->first();
         
         if (!($long_link)) {
             return view('Errors.404');
