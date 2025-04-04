@@ -7,6 +7,7 @@
 @endsection
 
 @section('encurtador-body')
+
     <div class="container pt-20 p-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <!--Left Col-->
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
@@ -40,10 +41,32 @@
         </svg>
     </div>
 
-    <div class="h-1/2 bg-gray-100 flex p-20 items-center justify-center">
+    <div class="h-1/2 bg-gray-100 flex p-20 items-center justify-center" x-data="{ openEncurtador: false, openHelpDesk: false, openSorteador: false, openProfile: false }">
         <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-lg">
             <h2 class="text-2xl font-bold text-center mb-4">Encurtador Sebrae</h2>
             <form action="{{ route('encurtar') }}" method="POST" class="space-y-4">
+                <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                    <li class="mr-3 relative">
+                        <button @click="openEncurtador = !openEncurtador; openSorteador = false"
+                            class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-gray-100">
+                            Encurtador
+                            <svg class="h-5 w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div x-show="openEncurtador" @click.away="openEncurtador = false"
+                            class="origin-top-left absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 px-2 py-2">
+                            <a href="{{ route('principal') }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 rounded-md">Meu
+                                Encurtador</a>
+                            <a href="{{ route('meusLinks') }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 rounded-md">Meus
+                                Links</a>
+                        </div>
+                    </li>
+                </ul>
                 @csrf
                 <div>
                     <label for="origin_url" class="block text-gray-700 font-bold mb-1">INSIRA O LINK</label>

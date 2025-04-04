@@ -29,7 +29,7 @@ Route::get('/index/meusLinks',[MeusLinks::class,'index'])->name('meusLinks')->mi
 Route::get('/index/buscarMeusLinks',[MeusLinks::class,'buscarLink'])->name('buscarMeusLinks')->middleware(VerifyADUser::class);
 
 Route::match(['get','post'],'/index', function (){
-    return view('Logado.index');
+    return view('Logado.encurtador');
 })->middleware(VerifyADUser::class)->name('welcome');
 
 Route::get('/logout', function () {

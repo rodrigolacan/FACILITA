@@ -45,31 +45,9 @@
                     </svg>
                 </button>
             </div>
-            <div x-data="{ openEncurtador: false, openHelpDesk: false, openSorteador: false, openProfile: false }"
+            <div x-data="{openProfile: false }"
                 class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
                 id="nav-content">
-                <ul class="list-reset lg:flex justify-end flex-1 items-center">
-                    <li class="mr-3 relative">
-                        <button @click="openEncurtador = !openEncurtador; openSorteador = false"
-                            class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-gray-100">
-                            Encurtador
-                            <svg class="h-5 w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div x-show="openEncurtador" @click.away="openEncurtador = false"
-                            class="origin-top-left absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 px-2 py-2">
-                            <a href="{{ route('principal') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 rounded-md">Meu
-                                Encurtador</a>
-                            <a href="{{ route('meusLinks') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 rounded-md">Meus
-                                Links</a>
-                        </div>
-                    </li>
-                </ul>
                 <div class="relative z-10 ml-auto">
                     <div @click="openProfile = !openProfile; openEncurtador = false ; openSorteador = false"
                         class="w-12 h-12 cursor-pointer overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none rounded-full">
